@@ -23,7 +23,7 @@
 // }
 
 // export default App;
-import { Square, Board } from "./components";
+import { Board } from "./components";
 
 export default function App() {
   return <Board />;
