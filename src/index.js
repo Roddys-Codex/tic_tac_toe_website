@@ -16,11 +16,8 @@
 // // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 // reportWebVitals();
 
-
-import React, { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import "./styles.css";
-
+import { React, StrictMode, createRoot } from "./utils";
+import "./styles/styles.css";
 import App from "./App";
 
 const root = createRoot(document.getElementById("root"));

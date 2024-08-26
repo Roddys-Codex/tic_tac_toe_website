@@ -23,6 +23,7 @@
 // }
 
 // export default App;
+import Square from "./components";
 
 export default function Board() {
   return (
@@ -47,23 +48,3 @@ export default function Board() {
     </>
   );
 }
-
-function Square({ value }) {
-
-  function handleClick() {
-    console.log("clicked!");
-  }
-
-  return (
-    <button
-      className="square"
-      onClick={handleClick}
-    >
-      {value}
-    </button>
-  );
-}
-
-// Square.propTypes = {
-//   value: PropTypes.string.isRequired,
-// }
