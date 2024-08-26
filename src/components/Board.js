@@ -1,10 +1,8 @@
 import { Square } from "./index";
-import { useState } from "../utils/index"
+import { PropTypes } from "../utils/index";
 
-export default function Board() {
+export default function Board({ xIsNext, squares, onPlay}) {
     
-    const [xIsNext, setXIsNext] = useState(true);
-    const [squares, setSquare] = useState(Array(9).fill(null));
     const winner = calculateWinner(squares);
 
     let status;
@@ -21,17 +19,15 @@ export default function Board() {
             return;
         } 
 
-        const nextSquare = squares.slice();
+        const nextSquares = squares.slice();
         if(xIsNext) {
-            nextSquare[i] = 'X';
-
+            nextSquares[i] = 'X';
         } else {
-            nextSquare[i] = 'O';
+            nextSquares[i] = 'O';
         }
 
-        setXIsNext(!xIsNext);
-    
-        setSquare(nextSquare);
+        
+        onPlay(nextSquares);
     }
 
     return (
@@ -57,6 +53,12 @@ export default function Board() {
       </>
     );
 }
+
+Board.propTypes = {
+  xIsNext: PropTypes.bool.isRequired,
+  squares: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])).isRequired,
+  onPlay: PropTypes.func.isRequired,
+};
 
 function calculateWinner(squares) {
     const lines = [
