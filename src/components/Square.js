@@ -1,21 +1,13 @@
-import { PropTypes } from 'prop-types';
+import { useState } from '../utils/index.js';
 
-export default function Square({ value }) {
-
-    function handleClick() {
-        console.log("clicked!");
-    }
+export default function Square({ value, onSquareClicked }) {
 
     return (
         <button
             className="square"
-            onClick={handleClick}
+            onClick={onSquareClicked}
         >
             {value}
         </button>
     );
-}
-
-Square.propTypes = {
-    value: PropTypes.string.isRequired,
 }
